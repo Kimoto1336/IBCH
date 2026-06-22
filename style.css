@@ -1,201 +1,292 @@
-/* css/style.css */
+/* css/style.css — Палитра «Триединство» (Helmarkfjord) */
 
-:root{
---primary:#6366F1;
---secondary:#8B5CF6;
---accent:#06B6D4;
+:root {
+  /* Основные цвета палитры */
+  --primary: #D4AF37;     /* Золото (отсылка к aurumhell) */
+  --secondary: #B57A8C;   /* Роза маркизы (отсылка к markizzzza) */
+  --accent: #3D6B70;      /* Глубина фьорда (отсылка к fjorchik) */
 
---bg:#0f172a;
---card:#1e293b;
---text:#f8fafc;
+  --bg: #0E0E0E;          /* Абсолютная тьма (фон) */
+  --card: #1A1A1A;        /* Чуть светлее фона для карточек */
+  --text: #F0EDE8;        /* Выбеленный мел (основной текст) */
+  --muted: #8A8580;       /* Приглушённый оттенок для второстепенного текста */
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-font-family:Segoe UI,sans-serif;
-background:var(--bg);
-color:var(--text);
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-.container{
-width:min(1200px,90%);
-margin:auto;
+.container {
+  width: min(1200px, 90%);
+  margin: auto;
 }
 
-.header{
-padding:20px 0;
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
+/* ===== Шапка ===== */
+.header {
+  padding: 20px 0;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  background: rgba(14, 14, 14, 0.8); /* полупрозрачный фон для читаемости */
 }
 
-.header .container{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo{
-font-size:2rem;
-font-weight:700;
-color:var(--primary);
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary); /* золото */
 }
 
-.nav{
-display:flex;
-gap:20px;
+.nav {
+  display: flex;
+  gap: 20px;
 }
 
-.nav a{
-color:white;
-text-decoration:none;
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.theme-btn{
-border:none;
-background:none;
-color:white;
-cursor:pointer;
+.nav a:hover {
+  color: var(--secondary); /* роза при наведении */
 }
 
-.hero{
-text-align:center;
-padding:100px 0;
+.theme-btn {
+  border: none;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
 }
 
-.hero h1{
-font-size:4rem;
-margin-bottom:20px;
+/* ===== Герой ===== */
+.hero {
+  text-align: center;
+  padding: 100px 0;
 }
 
-.hero p{
-max-width:700px;
-margin:auto;
-opacity:.8;
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
 }
 
-.primary-btn{
-margin-top:30px;
-border:none;
-padding:15px 30px;
-border-radius:12px;
-background:linear-gradient(
-135deg,
-var(--primary),
-var(--secondary)
-);
-color:white;
-cursor:pointer;
+.hero h1 span {
+  color: var(--primary); /* золотое выделение */
 }
 
-.fact-section{
-padding:50px 0;
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.85;
+  color: var(--text);
 }
 
-.fact-card{
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(10px);
-border-radius:20px;
-padding:30px;
+.primary-btn {
+  margin-top: 30px;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--bg); /* тёмный текст на светлом градиенте */
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
 }
 
-.category{
-color:var(--accent);
+.primary-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
-.actions{
-display:flex;
-gap:15px;
-margin-top:20px;
+/* ===== Секция фактов ===== */
+.fact-section {
+  padding: 50px 0;
 }
 
-.actions button{
-padding:10px 15px;
-border:none;
-border-radius:10px;
-cursor:pointer;
+.fact-card {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border-left: 4px solid var(--accent); /* фьордовая полоса */
 }
 
-.categories{
-padding:50px 0;
+.category {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.category-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-margin-top:20px;
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.category-item{
-background:rgba(255,255,255,.05);
-padding:20px;
-border-radius:15px;
-text-align:center;
+.actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--secondary);
+  color: var(--bg);
+  font-weight: 500;
+  transition: background 0.3s;
 }
 
-.footer{
-margin-top:100px;
-padding:50px 0;
-background:#020617;
+.actions button:hover {
+  background: var(--primary);
+  color: var(--bg);
 }
 
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+/* ===== Сетка категорий ===== */
+.categories {
+  padding: 50px 0;
 }
 
-.quiz-mode{
-background:rgba(255,255,255,.05);
-border-radius:15px;
-padding:25px;
-cursor:pointer;
-text-align:center;
-transition:.3s;
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.quiz-mode:hover{
-transform:translateY(-5px);
+.category-item {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+  border: 1px solid transparent;
 }
 
-.quiz-container{
-padding:50px 0;
+.category-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
 }
 
-.quiz-buttons{
-display:flex;
-gap:15px;
-margin-top:20px;
+.category-item h3 {
+  color: var(--primary);
 }
 
-.quiz-buttons button{
-flex:1;
-border:none;
-padding:15px;
-border-radius:12px;
-cursor:pointer;
-font-size:1rem;
+/* ===== Футер ===== */
+.footer {
+  margin-top: 100px;
+  padding: 50px 0;
+  background: #0A0A0A; /* чуть глубже, чем основной фон */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-#trueBtn{
-background:#22C55E;
-color:white;
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
-#falseBtn{
-background:#EF4444;
-color:white;
+.footer a {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
 }
 
-#result{
-margin-top:20px;
-font-size:1.2rem;
-font-weight:600;
+.footer a:hover {
+  opacity: 1;
+  color: var(--secondary);
 }
 
+/* ===== Режим викторины (кнопки-карточки) ===== */
+.quiz-mode {
+  background: var(--card);
+  border-radius: 15px;
+  padding: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.quiz-mode:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.quiz-container {
+  padding: 50px 0;
+}
+
+.quiz-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.quiz-buttons button {
+  flex: 1;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.quiz-buttons button:hover {
+  transform: scale(1.02);
+}
+
+/* Кнопки «Верно» / «Неверно» — оставляем интуитивные цвета,
+   но они вписаны в общую тёмную тему */
+#trueBtn {
+  background: #22C55E;
+  color: white;
+}
+
+#falseBtn {
+  background: #EF4444;
+  color: white;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== Дополнительные улучшения ===== */
+/* Ссылки внутри текста */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
+/* Скроллбар (опционально) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
